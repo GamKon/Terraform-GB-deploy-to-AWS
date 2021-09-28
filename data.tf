@@ -1,6 +1,6 @@
-data "aws_availability_zones" "available" {}
+data "aws_availability_zones" "available_zone" {}
 
-data "aws_ami" "Latest_Amazon_Linux_2_AMI" {
+data "aws_ami" "latest_amazon_linux_2_ami" {
   owners = [ "amazon" ]
   most_recent = true
   filter {
