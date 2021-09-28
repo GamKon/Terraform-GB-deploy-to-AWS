@@ -1,2 +1,2 @@
 # Terraform-GB-deploy-to-AWS
-Terraform project to publish to AWS using Green/Blue deployment
+Terraform-AWS WebServer project using Scaling_group and App_Load_Balancer for Green/Blue deployment

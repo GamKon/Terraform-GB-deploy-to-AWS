@@ -1,3 +1,10 @@
+resource "aws_default_subnet" "default_az1_subnet" {
+  availability_zone = data.aws_availability_zones.available.names[0]
+}
+resource "aws_default_subnet" "default_az2_subnet" {
+  availability_zone = data.aws_availability_zones.available.names[1]
+}
+
 resource "aws_security_group" "ssh_http_https" {
   name = "allow_ssh_http_https_from_0"
   description = "Firewall for WebServer"
