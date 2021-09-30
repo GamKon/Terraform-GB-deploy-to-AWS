@@ -1,12 +1,12 @@
 provider "aws" {
-  region = var.region_project_in
+  region    = var.region_project_in
 }
 
 terraform {
   backend "s3" {
-    bucket  = "terraform-gb-deploy-to-aws"
-    key = "terraform-gb-deploy-to-aws/terraform.tfstate"
-    region = "us-east-1"
+    bucket  = "terraform-state-files-gamkon"
+    key     = "terraform-gb-deploy-to-aws/terraform.tfstate"
+    region  = "us-east-1"
   }
 }
 
@@ -16,7 +16,7 @@ resource "aws_launch_configuration" "web_srv_launch_conf" {
   instance_type   = var.instance_type_webserver
   security_groups = [ aws_security_group.http_https_ssh_sec_group.id ]
   # creates webserver:
-  user_data       = file("user_data_redhat_yum.sh")
+  user_data       = file(var.bootstrap_script_file)
   
   lifecycle { create_before_destroy = true }
 }
